@@ -17,8 +17,8 @@ class Bot(object):
         signal.signal(signal.SIGTERM, self.exit)
         self.participants = set()
         self.markov = Markov()
-        if os.path.exists("markov_data.txt"):
-            with open("markov_data.txt", "r") as f:
+        if os.path.exists("markov_data1.txt"):
+            with open("markov_data1.txt", "r") as f:
                 self.markov.markov = eval(f.read())
             print(self.markov.markov)
         
@@ -32,7 +32,7 @@ class Bot(object):
         
         
     def save(self):
-        with open("markov_data.txt", "w") as f:
+        with open("markov_data1.txt", "w") as f:
             f.write(repr(self.markov.markov))
     
     
@@ -80,7 +80,9 @@ class Bot(object):
     
 
     def speak(self):
-        answer = self.markov.generate3()
+        answer = ""
+        while not answer:
+            answer = self.markov.generate3()
         while "{name}" in answer:
             answer.replace("{name}", random.choice(list(participants)))
         while "{num}" in answer:

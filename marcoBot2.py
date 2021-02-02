@@ -79,7 +79,9 @@ class Bot(object):
     
 
     def speak(self):
-        answer = self.markov.generate2()
+        answer = ""
+        while not answer:
+            answer = self.markov.generate2()
         while "{name}" in answer:
             answer.replace("{name}", random.choice(list(participants)))
         while "{num}" in answer:
