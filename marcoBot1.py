@@ -84,7 +84,7 @@ class Bot(object):
         while "{name}" in answer:
             answer.replace("{name}", random.choice(list(participants)))
         while "{num}" in answer:
-            answer.replace("{num}", random.choice([1, 2, 3, 5, 7, 9]))
+            answer.replace("{num}", str(random.choice([1, 2, 3, 5, 7, 9])))
         self.send(answer)
     
     
