@@ -1,7 +1,6 @@
 import random
 
 
-data = 'Oh! Vous savez, samedi ça m\'a déprimé de réaliser que la "tenue" de cette époque serait composé une doudoune'
 
 sentences_dividers = ".?!;"
 ponctuation = ".,!?;"
